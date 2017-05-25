@@ -2,12 +2,48 @@
     ViewBag.Title = "Home Page";
 }
 
+<div id="ha" class="easyui-layout" style="width:100%;height:100%;">
+    <div data-options="region:'north'" style="height:60px;border-width:0px">
+        <span style="font-size:large">XX信息管理系统</span>
+    </div>
+    <div data-options="region:'south',split:true" style="height:30px;">
+        本软件系统著作权归Richard.Hu所有
+    </div>
+    <div data-options="region:'west',split:true" title="菜单选项" style="width:200px;">
 
+        <div class="easyui-accordion" style="width:100%;height:100%;">
+            <div title="About" style="overflow:auto;padding:10px;">
+                <h3 style="color:#0099FF;">Accordion for jQuery</h3>
+                <p>Accordion is a part of easyui framework for jQuery. It lets you define your accordion component on web page more easily.</p>
+            </div>
+            <div title="Help" style="padding:10px;">
+                <p>The accordion allows you to provide multiple panels and display one or more at a time. Each panel has built-in support for expanding and collapsing. Clicking on a panel header to expand or collapse that panel body. The panel content can be loaded via ajax by specifying a 'href' property. Users can define a panel to be selected. If it is not specified, then the first panel is taken by default.</p>
+            </div>
+            <div title="TreeMenu" style="padding:10px;">
 
-<div id="p" class="easyui-panel" title="My Panel"
-     style="width:500px;height:150px;padding:10px;background:#fafafa;"
-     data-options="iconCls:'icon-save',closable:true,
-    collapsible:true,minimizable:true,maximizable:true">
-    <p>panel content.</p>
-    <p>panel content.</p>
+            </div>
+        </div>
+
+    </div>
+    <div data-options="region:'center',title:'Main Title',iconCls:'icon-ok'">
+        <div class="easyui-tabs" style="width:100%;height:100%">
+            <div title="About" style="padding:10px" data-options="closable:true">
+                <p style="font-size:14px">jQuery EasyUI framework helps you build your web pages easily.</p>
+                <ul>
+                    <li>easyui is a collection of user-interface plugin based on jQuery.</li>
+                    <li>easyui provides essential functionality for building modem, interactive, javascript applications.</li>
+                    <li>using easyui you don't need to write many javascript code, you usually defines user-interface by writing some HTML markup.</li>
+                    <li>complete framework for HTML5 web page.</li>
+                    <li>easyui save your time and scales while developing your products.</li>
+                    <li>easyui is very easy but powerful.</li>
+                </ul>
+            </div>
+            <div title="My Documents" style="padding:10px" data-options="closable:true">
+                <ul class="easyui-tree" data-options="url:'tree_data1.json',method:'get',animate:true"></ul>
+            </div>
+            <div title="Help" data-options="iconCls:'icon-help',closable:true" style="padding:10px">
+                This is the help content.
+            </div>
+        </div>
+    </div>
 </div>
