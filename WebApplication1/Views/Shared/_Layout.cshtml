@@ -10,9 +10,6 @@
     @Styles.Render("~/Content/themes/default/easyui.css")
     @Styles.Render("~/Content/themes/icon.css")
 
-</head>
-<body>
-    @RenderBody()
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
 
@@ -21,5 +18,10 @@
     @Scripts.Render("~/Scripts/locale/easyui-lang-zh_CN.js")
 
     @RenderSection("scripts", required: false)
+
+</head>
+<body>
+    @RenderBody()
+
 </body>
 </html>

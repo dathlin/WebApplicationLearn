@@ -3,16 +3,25 @@
 }
 
 <div id="ha" class="easyui-layout" style="width:100%;height:100%;">
-    <div data-options="region:'north'" style="height:60px;border-width:0px">
+    <div data-options="region:'north'" style="height:60px;border-width:0px;background-color:lavender">
         <span style="font-size:large">XX信息管理系统</span>
     </div>
-    <div data-options="region:'south',split:true" style="height:30px;">
-        本软件系统著作权归Richard.Hu所有
+    <div data-options="region:'south',split:true" style="height:25px;font-family:'Microsoft YaHei UI';vertical-align:central">
+        本软件系统著作权归Richard.Hu所有  Copyright @{ 
+            if (DateTime.Now.Year <= 2017)
+            {
+                <span>2017</span>
+            }
+            else
+            {
+                <span>2017-@DateTime.Now.Year</span>
+                }
+            }
     </div>
     <div data-options="region:'west',split:true" title="菜单选项" style="width:200px;">
 
         <div class="easyui-accordion" style="width:100%;height:100%;">
-            <div title="About" style="overflow:auto;padding:10px;">
+            <div title="我的账户" style="overflow:auto;padding:10px;">
                 <h3 style="color:#0099FF;">Accordion for jQuery</h3>
                 <p>Accordion is a part of easyui framework for jQuery. It lets you define your accordion component on web page more easily.</p>
             </div>
@@ -22,21 +31,28 @@
             <div title="TreeMenu" style="padding:10px;">
 
             </div>
+            <div title="基础设置" style="padding:10px;">
+
+            </div>
+            <div title="开发中心" style="padding:10px;">
+
+            </div>
         </div>
 
     </div>
     <div data-options="region:'center',title:'Main Title',iconCls:'icon-ok'">
         <div class="easyui-tabs" style="width:100%;height:100%">
-            <div title="About" style="padding:10px" data-options="closable:true">
-                <p style="font-size:14px">jQuery EasyUI framework helps you build your web pages easily.</p>
-                <ul>
-                    <li>easyui is a collection of user-interface plugin based on jQuery.</li>
-                    <li>easyui provides essential functionality for building modem, interactive, javascript applications.</li>
-                    <li>using easyui you don't need to write many javascript code, you usually defines user-interface by writing some HTML markup.</li>
-                    <li>complete framework for HTML5 web page.</li>
-                    <li>easyui save your time and scales while developing your products.</li>
-                    <li>easyui is very easy but powerful.</li>
-                </ul>
+            <div title="主界面" style="padding:10px"> 
+                <div class="row" style="height:100%">
+                    <div class="col-md-6">
+                        <div id="p1" class="easyui-panel" title="新闻资讯" style="width:100%;height:200px;padding:10px;"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="p2" class="easyui-panel" title="消息中心" style="width:100%;height:200px;padding:10px;"></div>
+                    </div>
+                    <div class="col-md-6">.col-md-6</div>
+                    <div class="col-md-6">.col-md-6</div>
+                </div>
             </div>
             <div title="My Documents" style="padding:10px" data-options="closable:true">
                 <ul class="easyui-tree" data-options="url:'tree_data1.json',method:'get',animate:true"></ul>
@@ -44,9 +60,81 @@
             <div title="Help" data-options="closable:true" style="padding:10px">
                 This is the help content.
             </div>
-            <div title="数据表" data-options="closable:true" style="padding:10px">
-                This is the help content.
+            <div title="数据表" data-options="closable:true" style="padding:5px">
+                <table id="dg" title="Client Side Pagination" style="width:100%;height:100%" data-options="
+				rownumbers:true,
+				singleSelect:true,
+				autoRowHeight:false,
+				pagination:true,
+				pageSize:40">
+                    <thead>
+                        <tr>
+                            <th field="inv" width="80">Inv No</th>
+                            <th field="date" width="100">Date</th>
+                            <th field="name" width="80">Name</th>
+                            <th field="amount" width="80" align="right">Amount</th>
+                            <th field="price" width="80" align="right">Price</th>
+                            <th field="cost" width="100" align="right">Cost</th>
+                            <th field="note" width="110">Note</th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>
 </div>
+
+<!--以下生成的是测试数据-->
+<script>
+		function getData(){
+			var rows = [];
+			for(var i=1; i<=800; i++){
+				var amount = Math.floor(Math.random()*1000);
+				var price = Math.floor(Math.random()*1000);
+				rows.push({
+					inv: 'Inv No '+i,
+					date: $.fn.datebox.defaults.formatter(new Date()),
+					name: 'Name '+i,
+					amount: amount,
+					price: price,
+					cost: amount*price,
+					note: 'Note '+i
+				});
+			}
+			return rows;
+		}
+
+		function pagerFilter(data){
+			if (typeof data.length == 'number' && typeof data.splice == 'function'){	// is array
+				data = {
+					total: data.length,
+					rows: data
+				}
+			}
+			var dg = $(this);
+			var opts = dg.datagrid('options');
+			var pager = dg.datagrid('getPager');
+			pager.pagination({
+				onSelectPage:function(pageNum, pageSize){
+					opts.pageNumber = pageNum;
+					opts.pageSize = pageSize;
+					pager.pagination('refresh',{
+						pageNumber:pageNum,
+						pageSize:pageSize
+					});
+					dg.datagrid('loadData',data);
+				}
+			});
+			if (!data.originalRows){
+				data.originalRows = (data.rows);
+			}
+			var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+			var end = start + parseInt(opts.pageSize);
+			data.rows = (data.originalRows.slice(start, end));
+			return data;
+		}
+
+		$(function(){
+			$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData());
+		});
+</script>
