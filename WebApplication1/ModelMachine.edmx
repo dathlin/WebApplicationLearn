@@ -1,0 +1,601 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SQL1006Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="电梯台帐">
+          <Key>
+            <PropertyRef Name="序号" />
+          </Key>
+          <Property Name="序号" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="本次检验日期" Type="date" />
+          <Property Name="下次检验日期" Type="date" />
+          <Property Name="是否已检" Type="nvarchar" MaxLength="3" />
+          <Property Name="设备代码" Type="nvarchar" MaxLength="20" />
+          <Property Name="设备状态" Type="nvarchar" MaxLength="2" />
+          <Property Name="设备等级" Type="nvarchar" MaxLength="5" />
+          <Property Name="内部编号" Type="nvarchar" MaxLength="4" />
+          <Property Name="安全管理人员" Type="nvarchar" MaxLength="5" />
+          <Property Name="是否移交" Type="nvarchar" MaxLength="3" />
+          <Property Name="移交日期" Type="nvarchar" MaxLength="15" />
+          <Property Name="原" Type="nvarchar" MaxLength="2" />
+          <Property Name="检" Type="nvarchar" MaxLength="2" />
+          <Property Name="登" Type="nvarchar" MaxLength="2" />
+          <Property Name="所属分厂" Type="nvarchar" MaxLength="6" />
+          <Property Name="属地部门" Type="nvarchar" MaxLength="10" />
+          <Property Name="设备名称" Type="nvarchar" MaxLength="10" />
+          <Property Name="设备型号" Type="nvarchar" MaxLength="20" />
+          <Property Name="设备制造单位" Type="nvarchar" MaxLength="15" />
+          <Property Name="产品编号" Type="nvarchar" MaxLength="15" />
+          <Property Name="出厂日期" Type="date" />
+          <Property Name="始用时间" Type="date" />
+          <Property Name="固定资产编号" Type="nvarchar" MaxLength="15" />
+          <Property Name="维修次数" Type="int" />
+        </EntityType>
+        <EntityType Name="锅炉台账">
+          <Key>
+            <PropertyRef Name="序号" />
+          </Key>
+          <Property Name="序号" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="设备编号" Type="nvarchar" MaxLength="10" />
+          <Property Name="设备名称" Type="nvarchar" MaxLength="12" />
+          <Property Name="设备状态" Type="nvarchar" MaxLength="3" />
+          <Property Name="设备注册编号" Type="nvarchar" MaxLength="20" />
+          <Property Name="使用等级证编号" Type="nvarchar" MaxLength="12" />
+          <Property Name="发证日期" Type="date" />
+          <Property Name="型号" Type="nvarchar" MaxLength="20" />
+          <Property Name="制造单位" Type="nvarchar" MaxLength="25" />
+          <Property Name="安装单位" Type="nvarchar" MaxLength="25" />
+          <Property Name="额定蒸发量" Type="nvarchar" MaxLength="8" />
+          <Property Name="额定蒸汽压力" Type="nvarchar" MaxLength="8" />
+          <Property Name="额定蒸汽温度" Type="nvarchar" MaxLength="8" />
+          <Property Name="燃烧方式" Type="nvarchar" MaxLength="10" />
+          <Property Name="产品编号" Type="nvarchar" MaxLength="16" />
+          <Property Name="出厂日期" Type="date" />
+          <Property Name="投用日期" Type="date" />
+          <Property Name="累计运行时间" Type="nvarchar" MaxLength="14" />
+          <Property Name="内部检验报告编号" Type="nvarchar" MaxLength="16" />
+          <Property Name="内部年检日期" Type="date" />
+          <Property Name="内部检验结论" Type="nvarchar" MaxLength="25" />
+          <Property Name="下次内部年检日期" Type="date" />
+          <Property Name="外部检验报告编号" Type="nvarchar" MaxLength="16" />
+          <Property Name="外部检验日期" Type="date" />
+          <Property Name="外部检验结论" Type="nvarchar" MaxLength="25" />
+          <Property Name="下次外部检验日期" Type="date" />
+        </EntityType>
+        <EntityType Name="起重设备台帐">
+          <Key>
+            <PropertyRef Name="序号" />
+          </Key>
+          <Property Name="序号" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="本次检验日期" Type="date" />
+          <Property Name="下次检验日期" Type="date" />
+          <Property Name="是否已检" Type="nvarchar" MaxLength="3" />
+          <Property Name="资料移交" Type="nvarchar" MaxLength="3" />
+          <Property Name="移交日期" Type="nvarchar" MaxLength="15" />
+          <Property Name="注册代码" Type="nvarchar" MaxLength="20" />
+          <Property Name="设备状态" Type="nvarchar" MaxLength="3" />
+          <Property Name="设备等级" Type="nvarchar" MaxLength="5" />
+          <Property Name="内部编号" Type="nvarchar" MaxLength="4" />
+          <Property Name="原" Type="nvarchar" MaxLength="2" />
+          <Property Name="检" Type="nvarchar" MaxLength="2" />
+          <Property Name="登" Type="nvarchar" MaxLength="2" />
+          <Property Name="所属分厂" Type="nvarchar" MaxLength="6" />
+          <Property Name="设备使用地点" Type="nvarchar" MaxLength="20" />
+          <Property Name="安装单位" Type="nvarchar" MaxLength="10" />
+          <Property Name="设备名称" Type="nvarchar" MaxLength="20" />
+          <Property Name="规格型号" Type="nvarchar" MaxLength="15" />
+          <Property Name="设备制造单位" Type="nvarchar" MaxLength="20" />
+          <Property Name="产品编号" Type="nvarchar" MaxLength="15" />
+          <Property Name="电动葫芦产品编号" Type="nvarchar" MaxLength="20" />
+          <Property Name="出厂日期" Type="date" />
+          <Property Name="始用时间" Type="date" />
+          <Property Name="备注" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="下沙新厂压力容器台账">
+          <Key>
+            <PropertyRef Name="序号" />
+          </Key>
+          <Property Name="序号" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="容器自编号" Type="nvarchar" MaxLength="10" />
+          <Property Name="使用登记证" Type="nvarchar" MaxLength="10" />
+          <Property Name="注册编号" Type="nvarchar" MaxLength="20" />
+          <Property Name="容器名称" Type="nvarchar" MaxLength="12" />
+          <Property Name="设备状态" Type="nvarchar" MaxLength="3" />
+          <Property Name="型号" Type="nvarchar" MaxLength="20" />
+          <Property Name="设计寿命" Type="nvarchar" MaxLength="5" />
+          <Property Name="类别" Type="nvarchar" MaxLength="6" />
+          <Property Name="设计压力" Type="nvarchar" MaxLength="11" />
+          <Property Name="工作压力" Type="nvarchar" MaxLength="11" />
+          <Property Name="工作温度" Type="nvarchar" MaxLength="11" />
+          <Property Name="介质" Type="nvarchar" MaxLength="12" />
+          <Property Name="规格" Type="nvarchar" MaxLength="30" />
+          <Property Name="容积" Type="nvarchar" MaxLength="10" />
+          <Property Name="材质" Type="nvarchar" MaxLength="15" />
+          <Property Name="制造单位" Type="nvarchar" MaxLength="22" />
+          <Property Name="制造年月" Type="nvarchar" MaxLength="7" />
+          <Property Name="出厂编号" Type="nvarchar" MaxLength="20" />
+          <Property Name="使用年月" Type="nvarchar" MaxLength="7" />
+          <Property Name="合格证" Type="nvarchar" MaxLength="2" />
+          <Property Name="质量证明书" Type="nvarchar" MaxLength="2" />
+          <Property Name="竣工图" Type="nvarchar" MaxLength="2" />
+          <Property Name="所在部门" Type="nvarchar" MaxLength="10" />
+          <Property Name="具体位置" Type="nvarchar" MaxLength="24" />
+          <Property Name="上次检验日期" Type="date" />
+          <Property Name="上次检验报告编号" Type="nvarchar" MaxLength="16" />
+          <Property Name="等级" Type="nvarchar" MaxLength="3" />
+          <Property Name="下次年度检查日期" Type="date" />
+          <Property Name="下次检验日期" Type="date" />
+          <Property Name="备注1" Type="nvarchar" MaxLength="60" />
+          <Property Name="注册或迁移日期" Type="date" />
+          <Property Name="停用日期" Type="date" />
+          <Property Name="备注2" Type="nvarchar" MaxLength="70" />
+        </EntityType>
+        <EntityType Name="压力管道台帐">
+          <Key>
+            <PropertyRef Name="序号" />
+          </Key>
+          <Property Name="序号" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="项目名称" Type="nvarchar" MaxLength="30" />
+          <Property Name="管道名称" Type="nvarchar" MaxLength="15" />
+          <Property Name="设备状态" Type="nvarchar" MaxLength="3" />
+          <Property Name="管道编号" Type="nvarchar" MaxLength="25" />
+          <Property Name="管道起止点" Type="nvarchar" MaxLength="100" />
+          <Property Name="设计单位" Type="nvarchar" MaxLength="30" />
+          <Property Name="安装单位" Type="nvarchar" MaxLength="30" />
+          <Property Name="安装年月" Type="date" />
+          <Property Name="投用年月" Type="date" />
+          <Property Name="公称直径mm" Type="nvarchar" MaxLength="10" />
+          <Property Name="公称壁厚mm" Type="nvarchar" MaxLength="10" />
+          <Property Name="累计长度km" Type="nvarchar" MaxLength="10" />
+          <Property Name="压力Mpa" Type="nvarchar" MaxLength="10" />
+          <Property Name="温度" Type="nvarchar" MaxLength="10" />
+          <Property Name="介质" Type="nvarchar" MaxLength="10" />
+          <Property Name="允许最高工作压力Mpa" Type="nvarchar" MaxLength="10" />
+          <Property Name="管道材质" Type="nvarchar" MaxLength="10" />
+          <Property Name="焊口数量" Type="nvarchar" MaxLength="10" />
+          <Property Name="管道级别" Type="nvarchar" MaxLength="50" />
+          <Property Name="安全等级" Type="nvarchar" MaxLength="50" />
+          <Property Name="检验评定单位" Type="nvarchar" MaxLength="20" />
+          <Property Name="注册代码" Type="nvarchar" MaxLength="50" />
+          <Property Name="下次检验日期" Type="date" />
+          <Property Name="报告编号" Type="nvarchar" MaxLength="20" />
+          <Property Name="备注" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="一般设备台账">
+          <Key>
+            <PropertyRef Name="序号" />
+          </Key>
+          <Property Name="序号" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="设备名称" Type="nvarchar" MaxLength="12" />
+          <Property Name="设备状态" Type="nvarchar" MaxLength="3" />
+          <Property Name="设备等级" Type="nvarchar" MaxLength="5" />
+          <Property Name="内部编号" Type="nvarchar" MaxLength="5" />
+          <Property Name="所属分厂" Type="nvarchar" MaxLength="6" />
+          <Property Name="规格型号" Type="nvarchar" MaxLength="15" />
+          <Property Name="设备安装地址" Type="nvarchar" MaxLength="25" />
+          <Property Name="安装单位" Type="nvarchar" MaxLength="25" />
+          <Property Name="设备制造单位" Type="nvarchar" MaxLength="25" />
+          <Property Name="产品编号" Type="nvarchar" MaxLength="15" />
+          <Property Name="始用时间" Type="nvarchar" MaxLength="20" />
+          <Property Name="维修次数" Type="int" />
+          <Property Name="维修经费" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="备注" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="SQL1006ModelStoreContainer">
+          <EntitySet Name="电梯台帐" EntityType="Self.电梯台帐" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="锅炉台账" EntityType="Self.锅炉台账" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="起重设备台帐" EntityType="Self.起重设备台帐" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="下沙新厂压力容器台账" EntityType="Self.下沙新厂压力容器台账" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="压力管道台帐" EntityType="Self.压力管道台帐" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="一般设备台账" EntityType="Self.一般设备台账" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SQL1006Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="电梯台帐">
+          <Key>
+            <PropertyRef Name="序号" />
+          </Key>
+          <Property Name="序号" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="本次检验日期" Type="DateTime" Precision="0" />
+          <Property Name="下次检验日期" Type="DateTime" Precision="0" />
+          <Property Name="是否已检" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="设备代码" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="设备状态" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="设备等级" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="内部编号" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="安全管理人员" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="是否移交" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="移交日期" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="原" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="检" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="登" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="所属分厂" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="属地部门" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="设备名称" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="设备型号" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="设备制造单位" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="产品编号" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="出厂日期" Type="DateTime" Precision="0" />
+          <Property Name="始用时间" Type="DateTime" Precision="0" />
+          <Property Name="固定资产编号" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="维修次数" Type="Int32" />
+        </EntityType>
+        <EntityType Name="锅炉台账">
+          <Key>
+            <PropertyRef Name="序号" />
+          </Key>
+          <Property Name="序号" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="设备编号" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="设备名称" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="设备状态" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="设备注册编号" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="使用等级证编号" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="发证日期" Type="DateTime" Precision="0" />
+          <Property Name="型号" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="制造单位" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="安装单位" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="额定蒸发量" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="额定蒸汽压力" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="额定蒸汽温度" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="燃烧方式" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="产品编号" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="出厂日期" Type="DateTime" Precision="0" />
+          <Property Name="投用日期" Type="DateTime" Precision="0" />
+          <Property Name="累计运行时间" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="内部检验报告编号" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="内部年检日期" Type="DateTime" Precision="0" />
+          <Property Name="内部检验结论" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="下次内部年检日期" Type="DateTime" Precision="0" />
+          <Property Name="外部检验报告编号" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="外部检验日期" Type="DateTime" Precision="0" />
+          <Property Name="外部检验结论" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="下次外部检验日期" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="起重设备台帐">
+          <Key>
+            <PropertyRef Name="序号" />
+          </Key>
+          <Property Name="序号" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="本次检验日期" Type="DateTime" Precision="0" />
+          <Property Name="下次检验日期" Type="DateTime" Precision="0" />
+          <Property Name="是否已检" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="资料移交" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="移交日期" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="注册代码" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="设备状态" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="设备等级" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="内部编号" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="原" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="检" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="登" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="所属分厂" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="设备使用地点" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="安装单位" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="设备名称" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="规格型号" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="设备制造单位" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="产品编号" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="电动葫芦产品编号" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="出厂日期" Type="DateTime" Precision="0" />
+          <Property Name="始用时间" Type="DateTime" Precision="0" />
+          <Property Name="备注" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="下沙新厂压力容器台账">
+          <Key>
+            <PropertyRef Name="序号" />
+          </Key>
+          <Property Name="序号" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="容器自编号" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="使用登记证" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="注册编号" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="容器名称" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="设备状态" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="型号" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="设计寿命" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="类别" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="设计压力" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="工作压力" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="工作温度" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="介质" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="规格" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="容积" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="材质" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="制造单位" Type="String" MaxLength="22" FixedLength="false" Unicode="true" />
+          <Property Name="制造年月" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="出厂编号" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="使用年月" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="合格证" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="质量证明书" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="竣工图" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="所在部门" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="具体位置" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="上次检验日期" Type="DateTime" Precision="0" />
+          <Property Name="上次检验报告编号" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="等级" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="下次年度检查日期" Type="DateTime" Precision="0" />
+          <Property Name="下次检验日期" Type="DateTime" Precision="0" />
+          <Property Name="备注1" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="注册或迁移日期" Type="DateTime" Precision="0" />
+          <Property Name="停用日期" Type="DateTime" Precision="0" />
+          <Property Name="备注2" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="压力管道台帐">
+          <Key>
+            <PropertyRef Name="序号" />
+          </Key>
+          <Property Name="序号" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="项目名称" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="管道名称" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="设备状态" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="管道编号" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="管道起止点" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="设计单位" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="安装单位" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="安装年月" Type="DateTime" Precision="0" />
+          <Property Name="投用年月" Type="DateTime" Precision="0" />
+          <Property Name="公称直径mm" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="公称壁厚mm" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="累计长度km" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="压力Mpa" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="温度" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="介质" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="允许最高工作压力Mpa" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="管道材质" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="焊口数量" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="管道级别" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="安全等级" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="检验评定单位" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="注册代码" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="下次检验日期" Type="DateTime" Precision="0" />
+          <Property Name="报告编号" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="备注" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="一般设备台账">
+          <Key>
+            <PropertyRef Name="序号" />
+          </Key>
+          <Property Name="序号" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="设备名称" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="设备状态" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="设备等级" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="内部编号" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="所属分厂" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="规格型号" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="设备安装地址" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="安装单位" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="设备制造单位" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="产品编号" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="始用时间" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="维修次数" Type="Int32" />
+          <Property Name="维修经费" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="备注" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="MachineEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="电梯台帐" EntityType="Self.电梯台帐" />
+          <EntitySet Name="锅炉台账" EntityType="Self.锅炉台账" />
+          <EntitySet Name="起重设备台帐" EntityType="Self.起重设备台帐" />
+          <EntitySet Name="下沙新厂压力容器台账" EntityType="Self.下沙新厂压力容器台账" />
+          <EntitySet Name="压力管道台帐" EntityType="Self.压力管道台帐" />
+          <EntitySet Name="一般设备台账" EntityType="Self.一般设备台账" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SQL1006ModelStoreContainer" CdmEntityContainer="MachineEntities">
+          <EntitySetMapping Name="电梯台帐">
+            <EntityTypeMapping TypeName="SQL1006Model.电梯台帐">
+              <MappingFragment StoreEntitySet="电梯台帐">
+                <ScalarProperty Name="序号" ColumnName="序号" />
+                <ScalarProperty Name="本次检验日期" ColumnName="本次检验日期" />
+                <ScalarProperty Name="下次检验日期" ColumnName="下次检验日期" />
+                <ScalarProperty Name="是否已检" ColumnName="是否已检" />
+                <ScalarProperty Name="设备代码" ColumnName="设备代码" />
+                <ScalarProperty Name="设备状态" ColumnName="设备状态" />
+                <ScalarProperty Name="设备等级" ColumnName="设备等级" />
+                <ScalarProperty Name="内部编号" ColumnName="内部编号" />
+                <ScalarProperty Name="安全管理人员" ColumnName="安全管理人员" />
+                <ScalarProperty Name="是否移交" ColumnName="是否移交" />
+                <ScalarProperty Name="移交日期" ColumnName="移交日期" />
+                <ScalarProperty Name="原" ColumnName="原" />
+                <ScalarProperty Name="检" ColumnName="检" />
+                <ScalarProperty Name="登" ColumnName="登" />
+                <ScalarProperty Name="所属分厂" ColumnName="所属分厂" />
+                <ScalarProperty Name="属地部门" ColumnName="属地部门" />
+                <ScalarProperty Name="设备名称" ColumnName="设备名称" />
+                <ScalarProperty Name="设备型号" ColumnName="设备型号" />
+                <ScalarProperty Name="设备制造单位" ColumnName="设备制造单位" />
+                <ScalarProperty Name="产品编号" ColumnName="产品编号" />
+                <ScalarProperty Name="出厂日期" ColumnName="出厂日期" />
+                <ScalarProperty Name="始用时间" ColumnName="始用时间" />
+                <ScalarProperty Name="固定资产编号" ColumnName="固定资产编号" />
+                <ScalarProperty Name="维修次数" ColumnName="维修次数" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="锅炉台账">
+            <EntityTypeMapping TypeName="SQL1006Model.锅炉台账">
+              <MappingFragment StoreEntitySet="锅炉台账">
+                <ScalarProperty Name="序号" ColumnName="序号" />
+                <ScalarProperty Name="设备编号" ColumnName="设备编号" />
+                <ScalarProperty Name="设备名称" ColumnName="设备名称" />
+                <ScalarProperty Name="设备状态" ColumnName="设备状态" />
+                <ScalarProperty Name="设备注册编号" ColumnName="设备注册编号" />
+                <ScalarProperty Name="使用等级证编号" ColumnName="使用等级证编号" />
+                <ScalarProperty Name="发证日期" ColumnName="发证日期" />
+                <ScalarProperty Name="型号" ColumnName="型号" />
+                <ScalarProperty Name="制造单位" ColumnName="制造单位" />
+                <ScalarProperty Name="安装单位" ColumnName="安装单位" />
+                <ScalarProperty Name="额定蒸发量" ColumnName="额定蒸发量" />
+                <ScalarProperty Name="额定蒸汽压力" ColumnName="额定蒸汽压力" />
+                <ScalarProperty Name="额定蒸汽温度" ColumnName="额定蒸汽温度" />
+                <ScalarProperty Name="燃烧方式" ColumnName="燃烧方式" />
+                <ScalarProperty Name="产品编号" ColumnName="产品编号" />
+                <ScalarProperty Name="出厂日期" ColumnName="出厂日期" />
+                <ScalarProperty Name="投用日期" ColumnName="投用日期" />
+                <ScalarProperty Name="累计运行时间" ColumnName="累计运行时间" />
+                <ScalarProperty Name="内部检验报告编号" ColumnName="内部检验报告编号" />
+                <ScalarProperty Name="内部年检日期" ColumnName="内部年检日期" />
+                <ScalarProperty Name="内部检验结论" ColumnName="内部检验结论" />
+                <ScalarProperty Name="下次内部年检日期" ColumnName="下次内部年检日期" />
+                <ScalarProperty Name="外部检验报告编号" ColumnName="外部检验报告编号" />
+                <ScalarProperty Name="外部检验日期" ColumnName="外部检验日期" />
+                <ScalarProperty Name="外部检验结论" ColumnName="外部检验结论" />
+                <ScalarProperty Name="下次外部检验日期" ColumnName="下次外部检验日期" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="起重设备台帐">
+            <EntityTypeMapping TypeName="SQL1006Model.起重设备台帐">
+              <MappingFragment StoreEntitySet="起重设备台帐">
+                <ScalarProperty Name="序号" ColumnName="序号" />
+                <ScalarProperty Name="本次检验日期" ColumnName="本次检验日期" />
+                <ScalarProperty Name="下次检验日期" ColumnName="下次检验日期" />
+                <ScalarProperty Name="是否已检" ColumnName="是否已检" />
+                <ScalarProperty Name="资料移交" ColumnName="资料移交" />
+                <ScalarProperty Name="移交日期" ColumnName="移交日期" />
+                <ScalarProperty Name="注册代码" ColumnName="注册代码" />
+                <ScalarProperty Name="设备状态" ColumnName="设备状态" />
+                <ScalarProperty Name="设备等级" ColumnName="设备等级" />
+                <ScalarProperty Name="内部编号" ColumnName="内部编号" />
+                <ScalarProperty Name="原" ColumnName="原" />
+                <ScalarProperty Name="检" ColumnName="检" />
+                <ScalarProperty Name="登" ColumnName="登" />
+                <ScalarProperty Name="所属分厂" ColumnName="所属分厂" />
+                <ScalarProperty Name="设备使用地点" ColumnName="设备使用地点" />
+                <ScalarProperty Name="安装单位" ColumnName="安装单位" />
+                <ScalarProperty Name="设备名称" ColumnName="设备名称" />
+                <ScalarProperty Name="规格型号" ColumnName="规格型号" />
+                <ScalarProperty Name="设备制造单位" ColumnName="设备制造单位" />
+                <ScalarProperty Name="产品编号" ColumnName="产品编号" />
+                <ScalarProperty Name="电动葫芦产品编号" ColumnName="电动葫芦产品编号" />
+                <ScalarProperty Name="出厂日期" ColumnName="出厂日期" />
+                <ScalarProperty Name="始用时间" ColumnName="始用时间" />
+                <ScalarProperty Name="备注" ColumnName="备注" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="下沙新厂压力容器台账">
+            <EntityTypeMapping TypeName="SQL1006Model.下沙新厂压力容器台账">
+              <MappingFragment StoreEntitySet="下沙新厂压力容器台账">
+                <ScalarProperty Name="序号" ColumnName="序号" />
+                <ScalarProperty Name="容器自编号" ColumnName="容器自编号" />
+                <ScalarProperty Name="使用登记证" ColumnName="使用登记证" />
+                <ScalarProperty Name="注册编号" ColumnName="注册编号" />
+                <ScalarProperty Name="容器名称" ColumnName="容器名称" />
+                <ScalarProperty Name="设备状态" ColumnName="设备状态" />
+                <ScalarProperty Name="型号" ColumnName="型号" />
+                <ScalarProperty Name="设计寿命" ColumnName="设计寿命" />
+                <ScalarProperty Name="类别" ColumnName="类别" />
+                <ScalarProperty Name="设计压力" ColumnName="设计压力" />
+                <ScalarProperty Name="工作压力" ColumnName="工作压力" />
+                <ScalarProperty Name="工作温度" ColumnName="工作温度" />
+                <ScalarProperty Name="介质" ColumnName="介质" />
+                <ScalarProperty Name="规格" ColumnName="规格" />
+                <ScalarProperty Name="容积" ColumnName="容积" />
+                <ScalarProperty Name="材质" ColumnName="材质" />
+                <ScalarProperty Name="制造单位" ColumnName="制造单位" />
+                <ScalarProperty Name="制造年月" ColumnName="制造年月" />
+                <ScalarProperty Name="出厂编号" ColumnName="出厂编号" />
+                <ScalarProperty Name="使用年月" ColumnName="使用年月" />
+                <ScalarProperty Name="合格证" ColumnName="合格证" />
+                <ScalarProperty Name="质量证明书" ColumnName="质量证明书" />
+                <ScalarProperty Name="竣工图" ColumnName="竣工图" />
+                <ScalarProperty Name="所在部门" ColumnName="所在部门" />
+                <ScalarProperty Name="具体位置" ColumnName="具体位置" />
+                <ScalarProperty Name="上次检验日期" ColumnName="上次检验日期" />
+                <ScalarProperty Name="上次检验报告编号" ColumnName="上次检验报告编号" />
+                <ScalarProperty Name="等级" ColumnName="等级" />
+                <ScalarProperty Name="下次年度检查日期" ColumnName="下次年度检查日期" />
+                <ScalarProperty Name="下次检验日期" ColumnName="下次检验日期" />
+                <ScalarProperty Name="备注1" ColumnName="备注1" />
+                <ScalarProperty Name="注册或迁移日期" ColumnName="注册或迁移日期" />
+                <ScalarProperty Name="停用日期" ColumnName="停用日期" />
+                <ScalarProperty Name="备注2" ColumnName="备注2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="压力管道台帐">
+            <EntityTypeMapping TypeName="SQL1006Model.压力管道台帐">
+              <MappingFragment StoreEntitySet="压力管道台帐">
+                <ScalarProperty Name="序号" ColumnName="序号" />
+                <ScalarProperty Name="项目名称" ColumnName="项目名称" />
+                <ScalarProperty Name="管道名称" ColumnName="管道名称" />
+                <ScalarProperty Name="设备状态" ColumnName="设备状态" />
+                <ScalarProperty Name="管道编号" ColumnName="管道编号" />
+                <ScalarProperty Name="管道起止点" ColumnName="管道起止点" />
+                <ScalarProperty Name="设计单位" ColumnName="设计单位" />
+                <ScalarProperty Name="安装单位" ColumnName="安装单位" />
+                <ScalarProperty Name="安装年月" ColumnName="安装年月" />
+                <ScalarProperty Name="投用年月" ColumnName="投用年月" />
+                <ScalarProperty Name="公称直径mm" ColumnName="公称直径mm" />
+                <ScalarProperty Name="公称壁厚mm" ColumnName="公称壁厚mm" />
+                <ScalarProperty Name="累计长度km" ColumnName="累计长度km" />
+                <ScalarProperty Name="压力Mpa" ColumnName="压力Mpa" />
+                <ScalarProperty Name="温度" ColumnName="温度" />
+                <ScalarProperty Name="介质" ColumnName="介质" />
+                <ScalarProperty Name="允许最高工作压力Mpa" ColumnName="允许最高工作压力Mpa" />
+                <ScalarProperty Name="管道材质" ColumnName="管道材质" />
+                <ScalarProperty Name="焊口数量" ColumnName="焊口数量" />
+                <ScalarProperty Name="管道级别" ColumnName="管道级别" />
+                <ScalarProperty Name="安全等级" ColumnName="安全等级" />
+                <ScalarProperty Name="检验评定单位" ColumnName="检验评定单位" />
+                <ScalarProperty Name="注册代码" ColumnName="注册代码" />
+                <ScalarProperty Name="下次检验日期" ColumnName="下次检验日期" />
+                <ScalarProperty Name="报告编号" ColumnName="报告编号" />
+                <ScalarProperty Name="备注" ColumnName="备注" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="一般设备台账">
+            <EntityTypeMapping TypeName="SQL1006Model.一般设备台账">
+              <MappingFragment StoreEntitySet="一般设备台账">
+                <ScalarProperty Name="序号" ColumnName="序号" />
+                <ScalarProperty Name="设备名称" ColumnName="设备名称" />
+                <ScalarProperty Name="设备状态" ColumnName="设备状态" />
+                <ScalarProperty Name="设备等级" ColumnName="设备等级" />
+                <ScalarProperty Name="内部编号" ColumnName="内部编号" />
+                <ScalarProperty Name="所属分厂" ColumnName="所属分厂" />
+                <ScalarProperty Name="规格型号" ColumnName="规格型号" />
+                <ScalarProperty Name="设备安装地址" ColumnName="设备安装地址" />
+                <ScalarProperty Name="安装单位" ColumnName="安装单位" />
+                <ScalarProperty Name="设备制造单位" ColumnName="设备制造单位" />
+                <ScalarProperty Name="产品编号" ColumnName="产品编号" />
+                <ScalarProperty Name="始用时间" ColumnName="始用时间" />
+                <ScalarProperty Name="维修次数" ColumnName="维修次数" />
+                <ScalarProperty Name="维修经费" ColumnName="维修经费" />
+                <ScalarProperty Name="备注" ColumnName="备注" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

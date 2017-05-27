@@ -1,0 +1,13 @@
+version: '2.1'
+
+services:
+  webapplication1:
+    image: webapplication1:dev
+    build:
+      args:
+        source: ${DOCKER_BUILD_SOURCE}
+    volumes:
+      - .\WebApplication1:C:\inetpub\wwwroot
+      - ~\msvsmon:C:\msvsmon:ro
+    labels:
+      - "com.microsoft.visualstudio.targetoperatingsystem=windows"
