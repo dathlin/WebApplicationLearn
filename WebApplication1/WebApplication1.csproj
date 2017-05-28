@@ -181,7 +181,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CraneController.cs" />
+    <Compile Include="Controllers\电梯台帐Controller.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -612,6 +615,8 @@
     <Content Include="Scripts\jquery.signalR-2.2.2.js" />
     <Content Include="Scripts\jquery.signalR-2.2.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -660,6 +665,15 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Menu\Elevator.cshtml" />
+    <Content Include="Views\电梯台帐\Index.cshtml" />
+    <Content Include="Views\Crane\Create.cshtml" />
+    <Content Include="Views\Crane\Delete.cshtml" />
+    <Content Include="Views\Crane\Details.cshtml" />
+    <Content Include="Views\Crane\Edit.cshtml" />
+    <Content Include="Views\Crane\Index.cshtml" />
+    <Content Include="Views\Home\DataTable.cshtml" />
+    <Content Include="Views\Crane\Crane.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

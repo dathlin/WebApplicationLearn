@@ -1,0 +1,350 @@
+﻿@model IEnumerable<WebApplication1.起重设备台帐>
+
+
+
+@{
+    string buttonId = Guid.NewGuid().ToString("N");
+}
+
+
+<div style="width:100%;height:100%">
+    <div style="width:100%;height:10%">
+        <div id="tb" style="padding:3px">
+            <span>设备名称：</span>
+            <input id="itemid" style="line-height:26px;border:1px solid #ccc">
+            <span>注册代码：</span>
+            <input id="productid" style="line-height:26px;border:1px solid #ccc">
+            <a href="#" class="easyui-linkbutton" plain="true" onclick="doSearch()">Search</a>
+        </div>
+    </div>
+    <table id="dg" title="Client Side Pagination" 
+           url="Crane/GetCraneData"
+           style="width:100%;height:90%" data-options="
+				rownumbers:true,
+				singleSelect:true,
+				autoRowHeight:false,
+				pagination:true,
+				pageSize:50" class="easyui-datagrid"
+           >
+
+        <thead>
+            <tr>
+                <th data-options="field:'本次检验日期',width:80">
+                    @Html.DisplayNameFor(model => model.本次检验日期)
+                </th>
+                <th data-options="field:'下次检验日期',width:80">
+                    @Html.DisplayNameFor(model => model.下次检验日期)
+                </th>
+                <th data-options="field:'是否已检',width:80">
+                    @Html.DisplayNameFor(model => model.是否已检)
+                </th>
+                <th data-options="field:'资料移交',width:80">
+                    @Html.DisplayNameFor(model => model.资料移交)
+                </th>
+                <th data-options="field:'移交日期',width:80">
+                    @Html.DisplayNameFor(model => model.移交日期)
+                </th>
+                <th data-options="field:'注册代码',width:80">
+                    @Html.DisplayNameFor(model => model.注册代码)
+                </th>
+                <th data-options="field:'设备状态',width:80">
+                    @Html.DisplayNameFor(model => model.设备状态)
+                </th>
+                <th data-options="field:'设备等级',width:80">
+                    @Html.DisplayNameFor(model => model.设备等级)
+                </th>
+                <th data-options="field:'内部编号',width:80">
+                    @Html.DisplayNameFor(model => model.内部编号)
+                </th>
+                <th data-options="field:'原',width:80">
+                    @Html.DisplayNameFor(model => model.原)
+                </th>
+                <th data-options="field:'检',width:80">
+                    @Html.DisplayNameFor(model => model.检)
+                </th>
+                <th data-options="field:'登',width:80">
+                    @Html.DisplayNameFor(model => model.登)
+                </th>
+                <th data-options="field:'所属分厂',width:80">
+                    @Html.DisplayNameFor(model => model.所属分厂)
+                </th>
+                <th data-options="field:'设备使用地点',width:80">
+                    @Html.DisplayNameFor(model => model.设备使用地点)
+                </th>
+                <th data-options="field:'安装单位',width:80">
+                    @Html.DisplayNameFor(model => model.安装单位)
+                </th>
+                <th data-options="field:'设备名称',width:80">
+                    @Html.DisplayNameFor(model => model.设备名称)
+                </th>
+                <th data-options="field:'规格型号',width:80">
+                    @Html.DisplayNameFor(model => model.规格型号)
+                </th>
+                <th data-options="field:'设备制造单位',width:80">
+                    @Html.DisplayNameFor(model => model.设备制造单位)
+                </th>
+                <th data-options="field:'产品编号',width:80">
+                    @Html.DisplayNameFor(model => model.产品编号)
+                </th>
+                <th data-options="field:'电动葫芦产品编号',width:80">
+                    @Html.DisplayNameFor(model => model.电动葫芦产品编号)
+                </th>
+                <th data-options="field:'出厂日期',width:80">
+                    @Html.DisplayNameFor(model => model.出厂日期)
+                </th>
+                <th data-options="field:'始用时间',width:80">
+                    @Html.DisplayNameFor(model => model.始用时间)
+                </th>
+                <th data-options="field:'备注',width:80">
+                    @Html.DisplayNameFor(model => model.备注)
+                </th>
+            </tr>
+        </thead>
+        @*<tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.本次检验日期)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.下次检验日期)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.是否已检)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.资料移交)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.移交日期)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.注册代码)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.设备状态)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.设备等级)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.内部编号)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.原)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.检)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.登)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.所属分厂)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.设备使用地点)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.安装单位)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.设备名称)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.规格型号)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.设备制造单位)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.产品编号)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.电动葫芦产品编号)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.出厂日期)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.始用时间)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.备注)
+                    </td>
+                </tr>
+            }
+        </tbody>*@
+    </table>
+
+
+
+    @*<table id="dg" title="起重设备台账 style="width:100%;height:100%" data-options="
+				rownumbers:true,
+				singleSelect:true,
+				autoRowHeight:false,
+				pagination:true,
+				pageSize:40">
+        <thead>
+            <tr>
+                <th data-options="field:'',width:80">
+                    @Html.DisplayNameFor(model => model.本次检验日期)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.下次检验日期)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.是否已检)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.资料移交)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.移交日期)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.注册代码)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.设备状态)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.设备等级)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.内部编号)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.原)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.检)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.登)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.所属分厂)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.设备使用地点)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.安装单位)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.设备名称)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.规格型号)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.设备制造单位)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.产品编号)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.电动葫芦产品编号)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.出厂日期)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.始用时间)
+                </th>
+                <th data-options="field:'asd',width:80">
+                    @Html.DisplayNameFor(model => model.备注)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.本次检验日期)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.下次检验日期)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.是否已检)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.资料移交)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.移交日期)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.注册代码)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.设备状态)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.设备等级)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.内部编号)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.原)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.检)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.登)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.所属分厂)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.设备使用地点)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.安装单位)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.设备名称)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.规格型号)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.设备制造单位)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.产品编号)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.电动葫芦产品编号)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.出厂日期)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.始用时间)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.备注)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>*@
+
+
+</div>
+
+<script type="text/javascript">
+    function doSearch() {
+        $('#tt').datagrid('load', {
+            itemid: $('#itemid').val(),
+            productid: $('#productid').val()
+        });
+    }
+</script>

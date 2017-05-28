@@ -28,5 +28,10 @@ namespace WebApplication1.Controllers
 
             return View();
         }
+
+        public ActionResult DataTable()
+        {
+            return PartialView();
+        }
     }
 }

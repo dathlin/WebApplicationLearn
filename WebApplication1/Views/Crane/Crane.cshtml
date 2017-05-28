@@ -1,0 +1,89 @@
+﻿@model IEnumerable<WebApplication1.起重设备台帐>
+
+@{ 
+    Layout = "~/Shared/_Layout.cshtml";
+}
+
+<table id="dg" title="Custom DataGrid Pager" style="width:700px;height:250px"
+       data-options="rownumbers:true,singleSelect:true,pagination:true,url:'datagrid_data1.json',method:'get'">
+    <thead>
+        <tr>
+            <th data-options="field:'itemid',width:80">Item ID</th>
+            <th data-options="field:'productid',width:100">Product</th>
+            <th data-options="field:'listprice',width:80,align:'right'">List Price</th>
+            <th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
+            <th data-options="field:'attr1',width:240">Attribute</th>
+            <th data-options="field:'status',width:60,align:'center'">Status</th>
+
+            @*<th data-options="field:'',width:80">
+                @Html.DisplayNameFor(model => model.本次检验日期)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.下次检验日期)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.是否已检)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.资料移交)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.移交日期)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.注册代码)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.设备状态)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.设备等级)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.内部编号)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.原)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.检)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.登)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.所属分厂)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.设备使用地点)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.安装单位)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.设备名称)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.规格型号)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.设备制造单位)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.产品编号)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.电动葫芦产品编号)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.出厂日期)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.始用时间)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.备注)
+            </th>*@
+        </tr>
+    </thead>
+</table>

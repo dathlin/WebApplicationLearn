@@ -35,13 +35,18 @@
 
             </div>
             <div title="开发中心" style="padding:10px;">
-
+                <a id="button1" class="easyui-linkbutton">查看电梯</a>
+                <script type="text/javascript">
+                    $("#button1").click(function () {
+                        HslMenuClick("查看电梯")
+                    })
+                </script>
             </div>
         </div>
 
     </div>
     <div data-options="region:'center',title:'Main Title',iconCls:'icon-ok'">
-        <div class="easyui-tabs" style="width:100%;height:100%">
+        <div id="TabsAll" class="easyui-tabs" style="width:100%;height:100%">
             <div title="主界面" style="padding:10px"> 
                 <div class="row" style="height:100%">
                     <div class="col-md-6">
@@ -60,81 +65,54 @@
             <div title="Help" data-options="closable:true" style="padding:10px">
                 This is the help content.
             </div>
-            <div title="数据表" data-options="closable:true" style="padding:5px">
-                <table id="dg" title="Client Side Pagination" style="width:100%;height:100%" data-options="
-				rownumbers:true,
-				singleSelect:true,
-				autoRowHeight:false,
-				pagination:true,
-				pageSize:40">
-                    <thead>
-                        <tr>
-                            <th field="inv" width="80">Inv No</th>
-                            <th field="date" width="100">Date</th>
-                            <th field="name" width="80">Name</th>
-                            <th field="amount" width="80" align="right">Amount</th>
-                            <th field="price" width="80" align="right">Price</th>
-                            <th field="cost" width="100" align="right">Cost</th>
-                            <th field="note" width="110">Note</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
+            
         </div>
     </div>
 </div>
 
 <!--以下生成的是测试数据-->
 <script>
-		function getData(){
-			var rows = [];
-			for(var i=1; i<=800; i++){
-				var amount = Math.floor(Math.random()*1000);
-				var price = Math.floor(Math.random()*1000);
-				rows.push({
-					inv: 'Inv No '+i,
-					date: $.fn.datebox.defaults.formatter(new Date()),
-					name: 'Name '+i,
-					amount: amount,
-					price: price,
-					cost: amount*price,
-					note: 'Note '+i
-				});
-			}
-			return rows;
-		}
 
-		function pagerFilter(data){
-			if (typeof data.length == 'number' && typeof data.splice == 'function'){	// is array
-				data = {
-					total: data.length,
-					rows: data
-				}
-			}
-			var dg = $(this);
-			var opts = dg.datagrid('options');
-			var pager = dg.datagrid('getPager');
-			pager.pagination({
-				onSelectPage:function(pageNum, pageSize){
-					opts.pageNumber = pageNum;
-					opts.pageSize = pageSize;
-					pager.pagination('refresh',{
-						pageNumber:pageNum,
-						pageSize:pageSize
-					});
-					dg.datagrid('loadData',data);
-				}
-			});
-			if (!data.originalRows){
-				data.originalRows = (data.rows);
-			}
-			var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
-			var end = start + parseInt(opts.pageSize);
-			data.rows = (data.originalRows.slice(start, end));
-			return data;
-		}
+        function onloading() {
+            $("<div class=\"datagrid-mask\"></div>").css({ display: "block", width: "100%", height: $(window).height() }).appendTo("body");
+            $("<div class=\"datagrid-mask-msg\"></div>").html("正在处理，请稍候。。。").appendTo("body").css({ display: "block", left: ($(document.body).outerWidth(true) - 190) / 2, top: ($(window).height() - 45) / 2 });
+        }
+        function removeload() {
+            $(".datagrid-mask").remove();
+            $(".datagrid-mask-msg").remove();
+        }  
 
-		$(function(){
-			$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData());
-		});
+
+        function HslMenuClick(title)
+        {
+            if ($('#TabsAll').tabs('exists', title)) {
+                $('#TabsAll').tabs('select', title);
+            } else {
+                $.ajax({
+                    url: '/Crane/Index',
+                    type: 'POST', //GET
+                    async: true,    //或false,是否异步
+                    timeout: 5000,    //超时时间
+                    dataType: 'html',    //返回的数据格式：json/xml/html/script/jsonp/text
+
+                    beforeSend: function (xhr) {
+                        onloading();
+                    },
+                    success: function (data, textStatus, jqXHR) {
+                        $('#TabsAll').tabs('add', {
+                            title: title,
+                            content: data,
+                            closable: true
+                        });
+                        $('#TabsAll').tabs('select', title);
+                    },
+                    error: function (xhr, textStatus) {
+                        $.messager.alert('load failed', 'Here is a error message!', 'error');
+                    },
+                    complete: function () {
+                        removeload();
+                    }
+                });
+            }
+        }
 </script>

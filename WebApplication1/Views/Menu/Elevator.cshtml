@@ -1,0 +1,24 @@
+﻿
+@{
+    string buttonId = Guid.NewGuid().ToString("N");
+}
+<div>
+    <div style="width:100%;height:100px">
+        @Ajax.ActionLink("查找", "Index", "电梯台账", null, new AjaxOptions
+   {
+       UpdateTargetId = "table1",
+       InsertionMode = InsertionMode.Replace,
+       OnBegin = "onloading()",
+       OnComplete = "removeload()"
+   }, new { @class = "easyui-linkbutton",@id=buttonId })
+    </div>
+
+
+    <div id="table1" title="数据表" data-options="closable:true" style="padding:5px">
+
+
+    </div>
+    <script type="text/javascript">
+        $("#"@buttonId).click();
+    </script>
+</div>
