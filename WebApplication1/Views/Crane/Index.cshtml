@@ -18,7 +18,7 @@
         </div>
     </div>
     <table id="dg" title="Client Side Pagination" 
-           url="Crane/GetCraneData"
+           @*url="Crane/GetCraneData"*@
            style="width:100%;height:90%" data-options="
 				rownumbers:true,
 				singleSelect:true,
@@ -100,15 +100,15 @@
                 </th>
             </tr>
         </thead>
-        @*<tbody>
-            @foreach (var item in Model)
-            {
+        <tbody>
+                @foreach (var item in Model)
+                {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.本次检验日期)
+                        @item.本次检验日期.Value.ToString("yyyy-MM-dd")
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.下次检验日期)
+                        @item.下次检验日期.Value.ToString("yyyy-MM-dd")
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.是否已检)
@@ -174,8 +174,8 @@
                         @Html.DisplayFor(modelItem => item.备注)
                     </td>
                 </tr>
-            }
-        </tbody>*@
+                }
+        </tbody>
     </table>
 
 

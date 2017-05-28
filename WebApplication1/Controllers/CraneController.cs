@@ -26,32 +26,32 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public async Task<ActionResult> GetCraneData(FormCollection fc)
         {
-            //int page = Convert.ToInt32(fc["page"]);
-            //int rows = Convert.ToInt32(fc["rows"]);
-            //string itemid = fc["itemid"];
-            //string productid = fc["productid"];
+            int page = Convert.ToInt32(fc["page"]);
+            int rows = Convert.ToInt32(fc["rows"]);
+            string itemid = fc["itemid"];
+            string productid = fc["productid"];
 
-            //int offect = (page - 1) * rows;
+            int offect = (page - 1) * rows;
 
             List<起重设备台帐> datas = await db.起重设备台帐.ToListAsync();
 
-            //Newtonsoft.Json.Linq.JObject json = new Newtonsoft.Json.Linq.JObject();
-            //json.Add("total", new Newtonsoft.Json.Linq.JValue(datas.Count));
+            Newtonsoft.Json.Linq.JObject json = new Newtonsoft.Json.Linq.JObject();
+            json.Add("total", new Newtonsoft.Json.Linq.JValue(datas.Count));
 
-            //if (!string.IsNullOrEmpty(itemid))
-            //{
-            //    datas = (from d in datas
-            //             where d.设备名称.Contains(itemid)
-            //             select d).ToList();
-            //}
-            //if (!string.IsNullOrEmpty(productid))
-            //{
-            //    datas = (from d in datas
-            //             where d.注册代码.Contains(productid)
-            //             select d).ToList();
-            //}
+            if (!string.IsNullOrEmpty(itemid))
+            {
+                datas = (from d in datas
+                         where d.设备名称.Contains(itemid)
+                         select d).ToList();
+            }
+            if (!string.IsNullOrEmpty(productid))
+            {
+                datas = (from d in datas
+                         where d.注册代码.Contains(productid)
+                         select d).ToList();
+            }
 
-            
+
             //List<起重设备台帐> result = new List<起重设备台帐>();
             //for (int i = 0; i < datas.Count; i++)
             //{
@@ -60,8 +60,8 @@ namespace WebApplication1.Controllers
             //        result.Add(datas[i]);
             //    }
             //}
-            //json.Add("rows", new Newtonsoft.Json.Linq.JValue(Newtonsoft.Json.Linq.JArray.FromObject(datas).ToString()));
-            return Content(Newtonsoft.Json.Linq.JArray.FromObject(datas).ToString());
+            json.Add("rows", new Newtonsoft.Json.Linq.JValue(Newtonsoft.Json.Linq.JArray.FromObject(datas).ToString()));
+            return Content(json.ToString());
         }
         // GET: Crane/Details/5
         public async Task<ActionResult> Details(int? id)
